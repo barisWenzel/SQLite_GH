@@ -39,7 +39,7 @@ namespace SQLite_GH
             string cs = string.Empty;
             if (!DA.GetData(0, ref cs)) return;
 
-            SQLiteConnection connection = new SQLiteConnection(cs);
+            SQLiteConnection connection = new SQLiteConnection("Data Source=" + cs + ";Version=3;");
             if (Run)
                 ExpireSolution(true);
             DA.SetDataList(0, Database.GetTableNames(connection));

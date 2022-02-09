@@ -17,7 +17,7 @@ namespace SQLite_GH
 
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddTextParameter("CS", "CS", "Connection string", GH_ParamAccess.item);
+            pManager.AddTextParameter("Dir", "Dir", "working direction", GH_ParamAccess.item);
             pManager.AddTextParameter("Tables", "Tables", "Tables names'", GH_ParamAccess.item);
             pManager.AddTextParameter("Columns", "Columns", "Columns names", GH_ParamAccess.list);
             pManager.AddTextParameter("Values", "Values", "Values", GH_ParamAccess.tree);
@@ -56,7 +56,9 @@ namespace SQLite_GH
             if (!DA.GetDataTree(3, out values)) return;
 
 
-            SQLiteConnection sConn = new SQLiteConnection(cs);
+            SQLiteConnection connection = new SQLiteConnection("Data Source=" + cs + ";Version=3;");
+
+            SQLiteConnection sConn = new SQLiteConnection(connection);
             if (Run)
             {
                 Database.CreateEntry(sConn, tname, columns, values);

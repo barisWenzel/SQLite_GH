@@ -53,7 +53,7 @@ namespace SQLite_GH
             if (Run)
                 ExpireSolution(true);
 
-            SQLiteConnection connection = new SQLiteConnection(cs);
+            SQLiteConnection connection = new SQLiteConnection("Data Source=" + cs + ";Version=3;");
 
             List<System.Object> data = Database.ReadValues(connection, columns, tname);
                        DA.SetDataList(0, data);

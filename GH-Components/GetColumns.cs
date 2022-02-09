@@ -35,7 +35,7 @@ namespace SQLite_GH
             string tname = string.Empty;
             if (!DA.GetData(1, ref tname)) return;
 
-            SQLiteConnection connection = new SQLiteConnection(cs); 
+            SQLiteConnection connection = new SQLiteConnection("Data Source=" + cs + ";Version=3;");
             DA.SetDataList(0, Database.GetColumns(tname, connection));
 
             Message = "GetColumns";
