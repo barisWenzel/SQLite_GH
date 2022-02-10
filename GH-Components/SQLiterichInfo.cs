@@ -10,7 +10,7 @@ namespace SQLite_GH
         {
             get
             {
-                return "SQLiterich";
+                return "eSQLeto";
             }
         }
         public override Bitmap Icon
